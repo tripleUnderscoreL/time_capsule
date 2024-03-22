@@ -1,0 +1,10 @@
+div{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10rem;
+}
+p{
+  font-size: 56px;
+  font-weight: 400;
+  text-align: center;
+}

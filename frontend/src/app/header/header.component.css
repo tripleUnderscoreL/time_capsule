@@ -1,0 +1,35 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0 0;
+}
+h1{
+  align-self: center;
+  font-size: 96px;
+  font-weight: 400;
+  margin: 0;
+}
+section{
+  display: flex;
+  gap:24px;
+}
+.logo{
+  width: 123px;
+  height: 123px;
+  border: 3px solid;
+  border-radius: 100px;
+}
+.img-vrap{
+  display: flex;
+  align-items: center;
+  width:54px;
+  height:54px;
+  padding: auto;
+  padding: 10px;
+  border: 3px solid;
+  border-radius: 100px;
+}
+hr{
+  margin-bottom: 3rem;
+}

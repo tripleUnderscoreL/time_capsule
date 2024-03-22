@@ -1,0 +1,82 @@
+<ng-container [ngSwitch]="type">
+  <div *ngSwitchCase="'menu'">
+    <ng-container [ngSwitch]="kind">
+      <div *ngSwitchCase="'pipes'" class="left">
+        <img src="../../assets/img/metal-pipe.png" width="746" height="200px">
+        <section>
+          <h1>Капсулы Времени</h1>
+          <h2>Описание, что такое и с чем кушать деньги- деньги (цена от и до)</h2>
+          <a [routerLink]="['/pipes']">
+            <p>Узнать больше</p>
+            <img src="../../assets/img/arrow.png" width="41px" height="41px">
+          </a>
+        </section>
+      </div>
+      <div *ngSwitchCase="'inner'" class="right">
+        <section>
+          <h1>Наполнение Капсул</h1>
+          <h2>Описание, что такое и с чем кушать деньги- деньги (цена от и до)</h2>
+          <a [routerLink]="['']">
+            <p>Узнать больше</p>
+            <img src="../../assets/img/arrow.png" width="41px" height="41px">
+          </a>
+        </section>
+        <img src="../../assets/img/paper-pen.png" width="557" height="465">
+      </div>
+      <div *ngSwitchCase="'set'" class="left">
+        <img src="../../assets/img/item-set.png" width="521" height="300">
+        <section>
+          <h1>Готовые Наборы</h1>
+          <h2>Описание, что такое и с чем кушать деньги- деньги (цена от и до)</h2>
+          <a [routerLink]="['']">
+            <p>Узнать больше</p>
+            <img src="../../assets/img/arrow.png" width="41px" height="41px">
+          </a>
+        </section>
+      </div>
+      <div *ngSwitchDefault class="left">
+        <h1>Элемент не найден</h1>
+      </div>
+    </ng-container>
+
+  </div>
+
+  <div *ngSwitchCase="'pipe'">
+    <ng-contaiber [ngSwitch]="kind">
+        <div *ngSwitchCase="'metal'" class="left">
+          <img src="../../assets/img/metal-pipe.png" width="746" height="200px">
+          <section>
+            <h1>Капсула Времени 1.0</h1>
+            <h2>Описание, что такое и с чем кушать Харакатеристики тдтдт на сколько лет</h2>
+            <article>
+              <p>25.000 р</p>
+              <a class="cart">
+                <img src="../../assets/img/cart.png" width="41px" height="41px">
+              </a>
+            </article>
+          </section>
+        </div>
+        <div *ngSwitchCase="'gold'" class="right">
+          <section>
+            <h1>Капсула Времени 2.0</h1>
+            <h2>Описание, что такое и с чем кушать Харакатеристики тдтдт на сколько лет</h2>
+            <article>
+              <p>35.000 р</p>
+              <a class="cart">
+                <img src="../../assets/img/cart.png" width="41px" height="41px">
+              </a>
+            </article>
+          </section>
+          <img src="../../assets/img/gold-pipe.png" width="746" height="200px">
+        </div>
+        <div *ngSwitchDefault class="left">
+          <h1>Элемент не найден</h1>
+        </div>
+    </ng-contaiber>
+  </div>
+
+  <div *ngSwitchDefault class="left">
+    <h1>Элемент не найден</h1>
+  </div>
+</ng-container>
+
