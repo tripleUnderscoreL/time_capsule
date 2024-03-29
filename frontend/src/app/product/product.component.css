@@ -3,7 +3,7 @@
   justify-content: space-evenly;
   background: linear-gradient(270deg, #FFFFFF 0%, #EAE8EA 62.52%);
   align-items: center;
-  height: 588px;
+  height: 600px;
   margin-bottom: 70px;
 }
 .right{
@@ -11,14 +11,14 @@
   justify-content: space-evenly;
   background: linear-gradient(90deg, #FFFFFF 0%, #EAE8EA 62.52%);
   align-items: center;
-  height: 588px;
+  height: 600px;
   margin-bottom: 70px;
 }
 h1{
   font-weight: 400;
-  font-size: 96px;
+  font-size: 66px;
   text-align: center;
-  margin: 66px 0 22px;
+  margin: 22px 0;
 }
 a{
   display:flex;
@@ -32,7 +32,7 @@ a:hover{
   opacity: 70%;
 }
 h2{
-  font-size: 56px;
+  font-size: 35px;
   font-weight: 400;
   text-align: center;
 }
@@ -51,6 +51,7 @@ article{
   align-items: center;
   gap: 66px;
   text-decoration-line: none;
+  height: 100px;
 }
 .cart{
   padding: 10px;

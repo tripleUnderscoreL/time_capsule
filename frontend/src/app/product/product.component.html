@@ -2,7 +2,7 @@
   <div *ngSwitchCase="'menu'">
     <ng-container [ngSwitch]="kind">
       <div *ngSwitchCase="'pipes'" class="left">
-        <img src="../../assets/img/metal-pipe.png" width="746" height="200px">
+        <img src="../../assets/img/Капсула L 2.png" width="800" height="600px">
         <section>
           <h1>Капсулы Времени</h1>
           <h2>Описание, что такое и с чем кушать деньги- деньги (цена от и до)</h2>
@@ -12,28 +12,31 @@
           </a>
         </section>
       </div>
+
       <div *ngSwitchCase="'inner'" class="right">
         <section>
           <h1>Наполнение Капсул</h1>
           <h2>Описание, что такое и с чем кушать деньги- деньги (цена от и до)</h2>
-          <a [routerLink]="['']">
+          <a [routerLink]="['/inner']">
             <p>Узнать больше</p>
             <img src="../../assets/img/arrow.png" width="41px" height="41px">
           </a>
         </section>
-        <img src="../../assets/img/paper-pen.png" width="557" height="465">
+        <img src="../../assets/img/Бланк для письма.png" width="800" height="600">
       </div>
+
       <div *ngSwitchCase="'set'" class="left">
-        <img src="../../assets/img/item-set.png" width="521" height="300">
+        <img src="../../assets/img/Набор 1.png" width="800" height="600">
         <section>
           <h1>Готовые Наборы</h1>
           <h2>Описание, что такое и с чем кушать деньги- деньги (цена от и до)</h2>
-          <a [routerLink]="['']">
+          <a [routerLink]="['/sets']">
             <p>Узнать больше</p>
             <img src="../../assets/img/arrow.png" width="41px" height="41px">
           </a>
         </section>
       </div>
+
       <div *ngSwitchDefault class="left">
         <h1>Элемент не найден</h1>
       </div>
@@ -43,11 +46,14 @@
 
   <div *ngSwitchCase="'pipe'">
     <ng-contaiber [ngSwitch]="kind">
-        <div *ngSwitchCase="'metal'" class="left">
-          <img src="../../assets/img/metal-pipe.png" width="746" height="200px">
+        <div *ngSwitchCase="'s1'" class="left">
+          <img src="../../assets/img/Каплуса S.png" width="800" height="600px">
           <section>
-            <h1>Капсула Времени 1.0</h1>
-            <h2>Описание, что такое и с чем кушать Харакатеристики тдтдт на сколько лет</h2>
+            <h1>Капсула S1</h1>
+            <h2>Компактная и удобная капсула времени, специально разработанная для
+              хранения ваших важных воспоминаний на 10 лет. Размеры: 15 см в диаметре
+              и 25 см в длину. Изготовлена из прочного и долговечного металла, который
+              защищает содержимое от влаги и воздействия окружающей среды.</h2>
             <article>
               <p>25.000 р</p>
               <a class="cart">
@@ -56,10 +62,14 @@
             </article>
           </section>
         </div>
-        <div *ngSwitchCase="'gold'" class="right">
+
+        <div *ngSwitchCase="'s2'" class="right">
           <section>
-            <h1>Капсула Времени 2.0</h1>
-            <h2>Описание, что такое и с чем кушать Харакатеристики тдтдт на сколько лет</h2>
+            <h1>Капсула S2</h1>
+            <h2>Миниатюрная капсула времени, предназначенная для хранения ваших
+              воспоминаний на 10 лет. Ее размеры составляют 20x15x15 см. Изготовлена
+              из прочного металла, обеспечивающего защиту от влаги и ультрафиолетовых
+              лучей, сохраняя содержимое безопасным и невредимым.</h2>
             <article>
               <p>35.000 р</p>
               <a class="cart">
@@ -67,12 +77,266 @@
               </a>
             </article>
           </section>
-          <img src="../../assets/img/gold-pipe.png" width="746" height="200px">
+          <img src="../../assets/img/Капсула S 2.png" width="800" height="600">
         </div>
+
+        <div *ngSwitchCase="'m1'" class="left">
+          <img src="../../assets/img/Каплуса М.png" width="800" height="600">
+          <section>
+            <h1>Капсула M1</h1>
+            <h2>Среднего размера капсула времени, предназначенная для сохранения
+              вашего наследия на 20 лет. Размеры: 40 см в длину, 15 см в ширину и 15 см в
+              высоту. Изготовлена из прочного алюминия с покрытием от коррозии,
+              обеспечивая надежную защиту от времени и внешних воздействий.</h2>
+            <article>
+              <p>65.000 р</p>
+              <a class="cart">
+                <img src="../../assets/img/cart.png" width="41px" height="41px">
+              </a>
+            </article>
+          </section>
+        </div>
+
+        <div *ngSwitchCase="'m2'" class="right">
+          <section>
+            <h1>Капсула M2</h1>
+            <h2>Среднего размера капсула времени с запасом на 20 лет. Ее габариты
+              составляют 40x15x20 см. Изготовлена из устойчивого алюминия с
+              водонепроницаемым покрытием, обеспечивая надежную защиту от внешних
+              воздействий и долгосрочное сохранение вашего наследия.</h2>
+            <article>
+              <p>55.000 р</p>
+              <a class="cart">
+                <img src="../../assets/img/cart.png" width="41px" height="41px">
+              </a>
+            </article>
+          </section>
+          <img src="../../assets/img/Капсула M 2.png" width="800" height="600">
+        </div>
+
+        <div *ngSwitchCase="'l1'" class="left">
+          <img src="../../assets/img/Капсула L.png" width="800" height="600">
+          <section>
+            <h1>Капсула L1</h1>
+            <h2>Просторная и надежная капсула времени для долгосрочного хранения на
+              30 лет. Размеры: 40 см в диаметре и 30 см в высоту. Изготовлена из
+              устойчивого к погодным условиям и воздействию времени авиационного
+              алюминия высокого качества, обеспечивая безопасное и долговечное
+              хранение ваших ценных воспоминаний.</h2>
+            <article>
+              <p>85.000 р</p>
+              <a class="cart">
+                <img src="../../assets/img/cart.png" width="41px" height="41px">
+              </a>
+            </article>
+          </section>
+        </div>
+
+        <div *ngSwitchCase="'l2'" class="right">
+          <section>
+            <h1>Капсула L2</h1>
+            <h2>Просторная капсула времени для хранения вашего наследия на 30 лет. Ее
+              размеры составляют 40x20x25 см. Изготовлена из прочного авиационного
+              алюминия высокой плотности, обеспечивая защиту от угроз и влажности,
+              сохраняя ваше содержимое в безопасности на долгие годы.</h2>
+            <article>
+              <p>95.000 р</p>
+              <a class="cart">
+                <img src="../../assets/img/cart.png" width="41px" height="41px">
+              </a>
+            </article>
+          </section>
+          <img src="../../assets/img/Капсула L 2.png" width="800" height="600">
+        </div>
+
         <div *ngSwitchDefault class="left">
           <h1>Элемент не найден</h1>
         </div>
     </ng-contaiber>
+  </div>
+
+  <div *ngSwitchCase="'inner'">
+    <ng-container [ngSwitch]="kind">
+      <div *ngSwitchCase="'album'" class="left">
+        <img src="../../assets/img/Альбом.png" width="600" height="450">
+        <section>
+          <h1>Альбом с тематическим дизайном</h1>
+          <h2>Сохраните ваши воспоминания в нашем альбоме с тематическим
+            дизайном! Каждая страница наполнена красотой и символикой вашей эпохи,
+            предлагая уникальную возможность сохранить и поделиться важными
+            моментами вашей жизни.</h2>
+          <article>
+            <p>1.500 р</p>
+            <a class="cart">
+              <img src="../../assets/img/cart.png" width="41px" height="41px">
+            </a>
+          </article>
+        </section>
+      </div>
+
+      <div *ngSwitchCase="'blank'" class="right">
+        <section>
+          <h1>Бланк для написания письма в будущее</h1>
+          <h2>Запишите свои мысли, мечты и пожелания на нашем бланке для написания
+            письма в будущее. Создайте свое личное послание времени, которое доставит
+            ваши слова в грядущие годы, оставив след в истории.</h2>
+          <article>
+            <p>500 р</p>
+            <a class="cart">
+              <img src="../../assets/img/cart.png" width="41px" height="41px">
+            </a>
+          </article>
+        </section>
+        <img src="../../assets/img/Бланк для письма.png" width="800" height="600">
+      </div>
+
+      <div *ngSwitchCase="'token'" class="left">
+        <img src="../../assets/img/Жетон.png" width="800" height="600">
+        <section>
+          <h1>Жетон с датой закладки</h1>
+          <h2>Наши жетоны с датой закладки - это не просто украшение, это способ
+            сохранить важный момент времени. Пометьте особое событие с помощью
+            этого стильного и символичного жетона.</h2>
+          <article>
+            <p>2.000 р</p>
+            <a class="cart">
+              <img src="../../assets/img/cart.png" width="41px" height="41px">
+            </a>
+          </article>
+        </section>
+      </div>
+
+      <div *ngSwitchCase="'calendar1'" class="right">
+        <section>
+          <h1>Сувенирный календарь</h1>
+          <h2>Путешествуйте во времени с нашим сувенирным календарем! Каждый
+            месяц представлен уникальным дизайном, который отражает важные
+            события и темы вашего времени. Прекрасный подарок и незаменимый
+            атрибут вашей временной капсулы.</h2>
+          <article>
+            <p>1.000 р</p>
+            <a class="cart">
+              <img src="../../assets/img/cart.png" width="41px" height="41px">
+            </a>
+          </article>
+        </section>
+        <img src="../../assets/img/Календарь 1.png" width="800" height="600">
+      </div>
+
+      <div *ngSwitchCase="'calendar2'" class="left">
+        <img src="../../assets/img/Календарь 2.png" width="800" height="600">
+        <section>
+          <h1>Сувенирный календарь</h1>
+          <h2>Откройте дверь в прошлое с нашим сувенирным календарем,
+            олицетворяющим историческую значимость мест. Каждый месяц
+            представляет собой новую страницу в вашем путеводителе времени, оживляя
+            в памяти знаковые локации и события. Позвольте себе погрузиться в
+            атмосферу истории и создайте уникальную временную капсулу, которая
+            станет свидетельством вашего уважения к прошлому.</h2>
+          <article>
+            <p>1.000 р</p>
+            <a class="cart">
+              <img src="../../assets/img/cart.png" width="41px" height="41px">
+            </a>
+          </article>
+        </section>
+      </div>
+
+      <div *ngSwitchCase="'flash1'" class="right">
+        <section>
+          <h1>Электронный накопитель информации</h1>
+          <h2>Храните свои ценные воспоминания в цифровом формате с нашим
+            электронным накопителем информации. Это современный способ создания
+            вашей временной капсулы, обеспечивающий долговременное сохранение и
+            удобный доступ к вашему наследию для будущих поколений.</h2>
+          <article>
+            <p>1.000 р</p>
+            <a class="cart">
+              <img src="../../assets/img/cart.png" width="41px" height="41px">
+            </a>
+          </article>
+        </section>
+        <img src="../../assets/img/Флешка 1.png" width="800" height="600">
+      </div>
+
+      <div *ngSwitchCase="'flash2'" class="left">
+        <img src="../../assets/img/Флешка 2.png" width="800" height="600">
+        <section>
+          <h1>Электронный накопитель информации</h1>
+          <h2>Увековечьте моменты с нашим электронным накопителем информации -
+            вашим персональным хранилищем времени. С этим устройством вы можете
+            сохранить ценные воспоминания, фотографии, документы и видеозаписи,
+            обеспечивая им долгосрочное хранение и надежную защиту от времени.
+            Откройте дверь в будущее и оставьте наследие, которое проследует за вами
+            сквозь время.</h2>
+          <article>
+            <p>1.000 р</p>
+            <a class="cart">
+              <img src="../../assets/img/cart.png" width="41px" height="41px">
+            </a>
+          </article>
+        </section>
+      </div>
+    </ng-container>
+  </div>
+
+  <div *ngSwitchCase="'sets'">
+    <ng-container [ngSwitch]="kind">
+      <div *ngSwitchCase="'set1'" class="left">
+        <img src="../../assets/img/Набор 1.png" width="800" height="600">
+        <section>
+          <h1>Набор 1</h1>
+          <h2>Насладитесь мгновениями прошлого и будущего с нашим набором № 1.
+            Включает в себя капсулу времени S, календарь с дизайном значимых мест,
+            жетон с гравировкой даты закладки капсулы и миниатюрные часы. Создайте
+            свою собственную временную капсулу, полную важных событий и
+            воспоминаний, которые проследят за вами на протяжении времени.</h2>
+          <article>
+            <p>80.000 р</p>
+            <a class="cart">
+              <img src="../../assets/img/cart.png" width="41px" height="41px">
+            </a>
+          </article>
+        </section>
+      </div>
+
+      <div *ngSwitchCase="'set2'" class="right">
+        <section>
+          <h1>Набор 2</h1>
+          <h2>Оставьте след в истории с нашим набором № 2. Включает в себя капсулу
+            времени M, флеш-карту для хранения исторических материалов и
+            сувенирный календарь с циферблатом. Этот набор позволит вам хранить
+            важные моменты и события в цифровом и аналоговом форматах, чтобы ваше
+            наследие оставалось непревзойденным.</h2>
+          <article>
+            <p>90.000 р</p>
+            <a class="cart">
+              <img src="../../assets/img/cart.png" width="41px" height="41px">
+            </a>
+          </article>
+        </section>
+        <img src="../../assets/img/Набор 2.png" width="800" height="600">
+      </div>
+
+      <div *ngSwitchCase="'set3'" class="left">
+        <img src="../../assets/img/Набор 3.png" width="800" height="600">
+        <section>
+          <h1>Набор 3</h1>
+          <h2>Сделайте каждый момент незабываемым с нашим набором № 3. Включает в
+            себя капсулу времени L, флеш-карту для хранения исторических материалов,
+            альбом с тематическим дизайном и бланк для написания письма в будущее.
+            Этот набор позволит вам создать полноценную временную капсулу,
+            наполненную важными событиями и воспоминаниями, которые будут
+            переданы следующим поколениям.</h2>
+          <article>
+            <p>100.000 р</p>
+            <a class="cart">
+              <img src="../../assets/img/cart.png" width="41px" height="41px">
+            </a>
+          </article>
+        </section>
+      </div>
+    </ng-container>
   </div>
 
   <div *ngSwitchDefault class="left">
