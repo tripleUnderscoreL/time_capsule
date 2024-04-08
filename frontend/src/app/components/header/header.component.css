@@ -33,3 +33,11 @@ section{
 hr{
   margin-bottom: 3rem;
 }
+a:hover{
+  cursor: pointer;
+  opacity: 70%;
+}
+a{
+  text-decoration-line: none;
+  color: black;
+}

@@ -1,0 +1,49 @@
+div{
+  display: flex;
+  flex-direction: row;
+}
+h1{
+  font-size: 66px;
+  font-weight: 400;
+  margin: 0;
+
+  text-align: center;
+}
+.details{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: middle;
+  padding: 0 100px;
+}
+p{
+  font-size: 35px;
+  font-weight: 400;;
+}
+.amount-in-basket{
+  margin: 0;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.amount{
+  align-items: center;
+  gap: 50px;
+}
+button{
+  background: none;
+  border: none;
+}
+button:hover{
+  cursor: pointer;
+  opacity: 70%;
+}
+.card{
+  margin-bottom: 70px;
+  border-radius: 30px;
+  border-width: 8px 0 8px 0;
+  border-color: rgba(235, 233, 235, 1);
+  border-style: solid;
+}
