@@ -1,0 +1,51 @@
+div{
+  background-image: url(../../../assets/img/seasons.png);
+  background-size: cover;
+  background-position: center;
+  padding: 80px 200px;
+}
+section{
+  width: fit-content;
+  background-color: white;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.outer{
+  width: 1450px;
+  padding: 130px 0 90px;
+}
+.inner{
+  width: 1350px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+}
+input{
+  width: 588px;
+  height: 88px;
+  border-width: 5px 0px 5px 0px;
+  border-radius: 30px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 1);
+  font-size: 64px;
+  font-weight: 400;
+  padding: 0 20px;
+}
+button{
+  padding: 0 60px;
+  margin-top: 96px;
+  border-width: 5px 0px 5px 0px;
+  border-radius: 30px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 1);
+  background-color: white;
+  font-size: 64px;
+  font-weight: 400;
+}
+button:hover{
+  cursor: pointer;
+  opacity: 70%;
+}

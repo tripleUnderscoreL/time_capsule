@@ -1,0 +1,30 @@
+div{
+  display: flex;
+  flex-wrap: wrap;
+}
+section{
+  margin: auto;
+  padding: 60px 30px;
+}
+h1{
+  font-size: 96px;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+}
+hr{
+  margin: 40px 0;
+  color:rgba(227, 225, 227, 1);
+  height: 8px;
+  background-color: rgba(227, 225, 227, 1);
+  border-style: solid;
+}
+img{
+  margin: 40px 0;
+}
+.down{
+  background: linear-gradient(0deg, #EAE8EA 0%, #FFFFFF 64.6%);
+}
+.up{
+  background: linear-gradient(0deg, #FFFFFF 0%, #EAE8EA 62.52%);
+}

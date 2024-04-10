@@ -5,6 +5,9 @@ import { InnerComponent } from './components/inner/inner.component';
 import { SetsComponent } from './components/sets/sets.component';
 import { MainComponent } from './pages/main/main.component';
 import { BasketComponent } from './pages/basket/basket.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
 
 export const routes: Routes = [
   {path: 'products', title: 'Продукты', component: ProductsComponent},
@@ -12,5 +15,8 @@ export const routes: Routes = [
   {path: 'inner', title: 'Содержимое капсул', component: InnerComponent},
   {path: 'sets', title: 'Готовые наборы', component: SetsComponent},
   {path: 'main', title: 'Главная', component: MainComponent},
-  {path: 'basket', title: 'Корзина', component: BasketComponent}
+  {path: 'basket', title: 'Корзина', component: BasketComponent},
+  {path: 'login', title: 'Вход', component: LoginComponent},
+  {path: 'reg', title: 'Регистрация', component: RegistrationComponent},
+  {path: 'gallery', title: 'Галлерея', component: GalleryComponent}
 ];
