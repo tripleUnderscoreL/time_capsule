@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
 from api.views import *
 
 
@@ -24,4 +24,6 @@ urlpatterns = [
     path('api/v1/products', ProductAPIView.as_view()),
     path('api/v1/carts', CartAPIView.as_view()),
     path('api/v1/cart/<int:cart_pk>', CartItemsAPIView.as_view()),
+    path('api/v1/auth/', include('djoser.urls')),
+    re_path(r'^auth/', include('djoser.urls.authtoken'))
 ]

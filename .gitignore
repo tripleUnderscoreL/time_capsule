@@ -167,3 +167,4 @@ __pycache__
 
 # database
 db.sqlite3
+*.rest
