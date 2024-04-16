@@ -1,0 +1,29 @@
+div{
+  display: flex;
+  flex-direction: column;
+  padding: 0 160px;
+  border: solid rgba(255, 254, 255, 1);
+  border-width: 6px 0;
+  margin: 33px 0;
+}
+section{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+h1{
+  font-size: 64px;
+  font-weight: 400;
+  margin: 10px 0;
+}
+.anwser{
+  margin: 0 100px;
+}
+p{
+  width: 1200px;
+  font-size: 64px;
+  font-weight: 400;
+  margin: 10px 0;
+  overflow-wrap: break-word;
+}

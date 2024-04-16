@@ -8,6 +8,8 @@ import { BasketComponent } from './pages/basket/basket.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
+import { FaqComponent } from './pages/faq/faq.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const routes: Routes = [
   {path: 'products', title: 'Продукты', component: ProductsComponent},
@@ -18,5 +20,7 @@ export const routes: Routes = [
   {path: 'basket', title: 'Корзина', component: BasketComponent},
   {path: 'login', title: 'Вход', component: LoginComponent},
   {path: 'reg', title: 'Регистрация', component: RegistrationComponent},
-  {path: 'gallery', title: 'Галлерея', component: GalleryComponent}
+  {path: 'gallery', title: 'Галлерея', component: GalleryComponent},
+  {path: 'FAQ', title: 'FAQ', component: FaqComponent},
+  {path: 'profile', title: 'Профиль', component: ProfileComponent}
 ];
