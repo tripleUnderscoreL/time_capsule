@@ -1,1 +1,24 @@
-<p>reviews works!</p>
+<app-header></app-header>
+<div>
+  <section>
+    <div class="add-review">
+      <input placeholder="Напишите отзыв...">
+      <div class="photos">
+        <button class="publish">Опубликовать</button>
+        <button>
+          <img src="../../../assets/img/add-photo.png">
+        </button>
+        <img src="../../../assets/img/Набор 1.png" width="115" height="115">
+      </div>
+    </div>
+  </section>
+  <hr>
+  <app-review [review] = "reviews[0]" ></app-review>
+  <app-review [review] = "reviews[1]" ></app-review>
+  <app-review [review] = "reviews[2]" ></app-review>
+  <app-review [review] = "reviews[3]" ></app-review>
+  <app-review [review] = "reviews[4]" ></app-review>
+  <app-review [review] = "reviews[5]" ></app-review>
+  <app-review [review] = "reviews[6]" ></app-review>
+</div>
+<app-footer></app-footer>

@@ -10,6 +10,8 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ReviewsComponent } from './pages/reviews/reviews.component';
+import { AboutComponent } from './pages/about/about.component';
 
 export const routes: Routes = [
   {path: 'products', title: 'Продукты', component: ProductsComponent},
@@ -22,5 +24,7 @@ export const routes: Routes = [
   {path: 'reg', title: 'Регистрация', component: RegistrationComponent},
   {path: 'gallery', title: 'Галлерея', component: GalleryComponent},
   {path: 'FAQ', title: 'FAQ', component: FaqComponent},
-  {path: 'profile', title: 'Профиль', component: ProfileComponent}
+  {path: 'profile', title: 'Профиль', component: ProfileComponent},
+  {path: 'reviews', title:'Отзывы', component: ReviewsComponent},
+  {path: 'about', title: 'О нас', component: AboutComponent}
 ];

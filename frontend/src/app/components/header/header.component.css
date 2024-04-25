@@ -15,10 +15,8 @@ section{
   gap:24px;
 }
 .logo{
-  width: 123px;
-  height: 123px;
-  border: 3px solid;
-  border-radius: 100px;
+  width: 140px;
+  height: 140px;
 }
 .img-vrap{
   display: flex;

@@ -1,0 +1,45 @@
+div{
+  background: linear-gradient(270deg, #FFFFFF 0%, #EAE8EA 62.52%);
+}
+section{
+  padding: 50px 7%;
+}
+button{
+  border: none;
+  background: none;
+}
+.publish{
+  border-color: rgba(203, 203, 203, 1);
+  border-width: 8px 0px 8px 0px;
+  border-radius: 30px;
+  border-style: solid;
+  font-size: 58px;
+  font-weight: 400;
+  color: rgba(162, 162, 162, 1);
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0px 50px;
+}
+input{
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 58px;
+  font-weight: 400;
+  /* color: rgba(162, 162, 162, 1); */
+  width:100%;
+}
+button:hover{
+  opacity: 70%;
+  cursor: pointer;
+}
+hr{
+  border: solid rgba(255, 254, 255, 1);
+  border-width: 6px 0;
+  margin-bottom: 30px;
+}
+.photos{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 38px;
+}

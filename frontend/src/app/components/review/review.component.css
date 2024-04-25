@@ -1,0 +1,26 @@
+div{
+  padding: 1% 7%;
+}
+p{
+  font-size: 64px;
+  font-weight: 400;
+  margin: 10px 0;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  gap: 38px;
+}
+.date{
+  color: rgba(203, 203, 203, 1);
+}
+.inner{
+  margin-left: 5%;
+}
+hr{
+  border: solid rgba(255, 254, 255, 1);
+  border-width: 6px 0;
+}
+.down{
+  margin-bottom: 30px;
+}
