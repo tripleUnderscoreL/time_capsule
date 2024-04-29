@@ -25,5 +25,7 @@ urlpatterns = [
     path('api/v1/carts', CartAPIView.as_view()),
     path('api/v1/cart/<int:cart_pk>', CartItemsAPIView.as_view()),
     path('api/v1/auth/', include('djoser.urls')),
-    re_path(r'^auth/', include('djoser.urls.authtoken'))
+    re_path(r'^auth/', include('djoser.urls.authtoken')),
+    path('api/v1/products/<int:product_id>/reviews/', ProductReviewListAPIView.as_view(), name='product_review_list'),
+    path('api/v1/products/<int:product_id>/reviews/create/', ReviewCreateAPIView.as_view(), name='create_review')
 ]
