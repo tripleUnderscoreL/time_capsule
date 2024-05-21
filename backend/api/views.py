@@ -15,6 +15,21 @@ class ProductAPIView(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
+
+class CategoryProductsView(generics.ListAPIView):
+    serializer_class = ProductSerializer
+
+    def get_queryset(self):
+        category_id = self.kwargs['category_id']
+        return Product.objects.filter(category_id=category_id)
+    
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        if not queryset.exists():
+            return Response({"detail": "Категория не найдена или в данной категории нет товаров"}, status=status.HTTP_404_NOT_FOUND)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
     
 @api_view(['POST'])
 def signup(request):

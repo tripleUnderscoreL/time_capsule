@@ -161,6 +161,7 @@ cython_debug/
 
 # custom
 backend/api/migrations
+media
 
 # cache
 __pycache__
