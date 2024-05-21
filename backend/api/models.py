@@ -29,6 +29,9 @@ class Category(models.Model):
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
 
+from django.db import models
+from api.models import Category  # Ensure you have the correct import for the related model
+
 class Product(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False)
     description = models.TextField(null=False)
@@ -37,7 +40,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to=product_image_path, height_field=None, width_field=None, max_length=100, null=True)
 
     def save(self, *args, **kwargs):
-        if self._state.adding and not self.id:
+        if self._state.adding and self.image:
             temp_image = self.image
             self.image = None
             super().save(*args, **kwargs)
