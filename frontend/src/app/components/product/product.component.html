@@ -45,7 +45,25 @@
   </div>
 
   <div *ngSwitchCase="'pipe'">
-    <ng-contaiber [ngSwitch]="kind">
+    @if (Pipes$ | async; as cards){
+      @for (card of cards; track card.id ){
+        <div class="left">
+          <img src="../../assets/img/Каплуса S.png" width="800" height="600px">
+          <section>
+            <h1>{{card.name}}</h1>
+            <h2>{{card.description}}</h2>
+            <article>
+              <p>{{card.price}} р</p>
+              <a class="cart">
+                <img src="../../assets/img/cart.png" width="41px" height="41px">
+              </a>
+            </article>
+          </section>
+        </div>
+      }
+    }
+
+    <!-- <ng-contaiber [ngSwitch]="kind">
         <div *ngSwitchCase="'s1'" class="left">
           <img src="../../assets/img/Каплуса S.png" width="800" height="600px">
           <section>
@@ -152,11 +170,30 @@
         <div *ngSwitchDefault class="left">
           <h1>Элемент не найден</h1>
         </div>
-    </ng-contaiber>
+    </ng-contaiber> -->
   </div>
 
   <div *ngSwitchCase="'inner'">
-    <ng-container [ngSwitch]="kind">
+
+    @if (Inner$ | async; as cards){
+      @for (card of cards; track card.id ){
+        <div class="left">
+          <img src="../../assets/img/Каплуса S.png" width="800" height="600px">
+          <section>
+            <h1>{{card.name}}</h1>
+            <h2>{{card.description}}</h2>
+            <article>
+              <p>{{card.price}} р</p>
+              <a class="cart">
+                <img src="../../assets/img/cart.png" width="41px" height="41px">
+              </a>
+            </article>
+          </section>
+        </div>
+      }
+    }
+
+    <!-- <ng-container [ngSwitch]="kind">
       <div *ngSwitchCase="'album'" class="left">
         <img src="../../assets/img/Альбом.png" width="600" height="450">
         <section>
@@ -277,11 +314,30 @@
           </article>
         </section>
       </div>
-    </ng-container>
+    </ng-container> -->
   </div>
 
   <div *ngSwitchCase="'sets'">
-    <ng-container [ngSwitch]="kind">
+
+    @if (Sets$ | async; as cards){
+      @for (card of cards; track card.id ){
+        <div class="left">
+          <img src="../../assets/img/Каплуса S.png" width="800" height="600px">
+          <section>
+            <h1>{{card.name}}</h1>
+            <h2>{{card.description}}</h2>
+            <article>
+              <p>{{card.price}} р</p>
+              <a class="cart">
+                <img src="../../assets/img/cart.png" width="41px" height="41px">
+              </a>
+            </article>
+          </section>
+        </div>
+      }
+    }
+
+    <!-- <ng-container [ngSwitch]="kind">
       <div *ngSwitchCase="'set1'" class="left">
         <img src="../../assets/img/Набор 1.png" width="800" height="600">
         <section>
@@ -336,7 +392,7 @@
           </article>
         </section>
       </div>
-    </ng-container>
+    </ng-container> -->
   </div>
 
   <div *ngSwitchDefault class="left">

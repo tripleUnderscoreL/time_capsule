@@ -2,12 +2,12 @@
 <div>
   <section class="outer">
     <section class="inner">
-      <input placeholder="Логин">
-      <input placeholder="Пароль">
+      <input placeholder="Логин" (input)="user.username=getValue($event)">
+      <input placeholder="Пароль" (input)="user.password=getValue($event)">
       <input placeholder="Номер телефона">
-      <input placeholder="E-mail">
+      <input placeholder="E-mail" (input)="user.email=getValue($event)">
     </section>
-    <button>Регистрация</button>
+    <button (click)="postUser()">Регистрация</button>
   </section>
 </div>
 <app-footer></app-footer>
