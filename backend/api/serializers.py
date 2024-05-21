@@ -15,19 +15,23 @@ class UserSerializer(serializers.Serializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = "__all__"
+        fields = ['id', 'name', 'price']
+
+
+class CartItemSerializer(serializers.ModelSerializer):
+    product = ProductSerializer()
+
+    class Meta:
+        model = CartItem
+        fields = ['id', 'product', 'quantity']
 
 
 class CartSerializer(serializers.ModelSerializer):
+    items = CartItemSerializer(many=True, read_only=True)
+
     class Meta:
         model = Cart
-        fields = ['pk', 'created_at']
-
-    
-class CartItemSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CartItem
-        fields = "__all__"
+        fields = ['id', 'user', 'session_key', 'items']
 
 
 class ReviewSerializer(serializers.ModelSerializer):
