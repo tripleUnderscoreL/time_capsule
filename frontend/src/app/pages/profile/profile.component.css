@@ -8,6 +8,7 @@ div{
   background-size: cover;
   background-position: center;
   padding: 100px;
+  border-radius: 20px;
 }
 p{
   width: 588px;

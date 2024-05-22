@@ -1,12 +1,21 @@
 div{
   display: flex;
   justify-content: space-between;
-  margin: 0 10rem;
 }
 p{
-  font-size: 56px;
+  font-size: 40px;
   font-weight: 400;
-  text-align: center;
+  text-align: left;
+}
+li{
+  font-size: 30px;
+  font-weight: 400;
+  text-align: left;
+}
+tr{
+  font-size: 40px;
+  font-weight: 400;
+  text-align: left;
 }
 hr{
   margin-top: 70px;

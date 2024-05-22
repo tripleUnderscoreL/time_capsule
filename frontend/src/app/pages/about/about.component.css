@@ -1,0 +1,44 @@
+.container{
+
+}
+.content{
+  background-image: url(../../../assets/img/background.png);
+  background-size: cover;
+  border-radius: 20px;
+  padding: 2% 10%;
+  /* padding: 5% 10%;
+  background-image:
+    linear-gradient(white, white),
+    url(../../../assets/img/backgroun-paper.jpg);
+  background-size: cover;
+  background-blend-mode: saturation;
+  border-radius: 20px; */
+}
+section{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10%;
+}
+h1{
+  font-size: 60px;
+  font-weight: 600;
+  text-align: center;
+}
+p{
+  font-size: 50px;
+  font-weight: 400;
+  text-align: center;
+}
+li{
+  font-size: 30px;
+  font-weight: 400;
+  text-align: left;
+}
+tr{
+  font-size: 50px;
+  font-weight: 400;
+  text-align: left;
+}
+hr{
+  margin-top: 70px;
+}
