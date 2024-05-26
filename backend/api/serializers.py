@@ -1,11 +1,12 @@
-from .models import Product, Cart, CartItem, Review, Profile
+from .models import Product, Cart, CartItem, Comment, Profile, CommentImage
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from django.utils.dateformat import DateFormat
 
 class UserSerializer(serializers.Serializer):
     class Meta:
         model = User
-        fields = ["username", "password"]
+        fields = ["username", "password", "email"]
         extra_kwargs = {"password": {"write_only": True}}
 
     def create(self, validated_data):
@@ -34,10 +35,36 @@ class CartSerializer(serializers.ModelSerializer):
         fields = ['id', 'user', 'session_key', 'items']
 
 
-class ReviewSerializer(serializers.ModelSerializer):
+class CommentImageSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Review
-        fields = ["user", "content", "rating", "date_added"]
+        model = CommentImage
+        fields = ['id', 'comment', 'image']
+
+class CommentSerializer(serializers.ModelSerializer):
+    images = CommentImageSerializer(many=True, read_only=True)
+    uploaded_images = serializers.ListField(
+        child=serializers.ImageField(max_length=100000, allow_empty_file=False, use_url=False),
+        write_only=True,
+        required=False
+    )
+    user_name = serializers.SerializerMethodField()
+    date_added = serializers.SerializerMethodField()
+    class Meta:
+        model = Comment
+        fields = ['id', 'user', 'user_name', 'content', 'date_added', 'images', 'uploaded_images']
+
+    def get_user_name(self, obj):
+        return obj.user.username if obj.user else "Удаленный пользователь"  
+    
+    def get_date_added(self, obj):
+        return DateFormat(obj.date_added).format('Y-m-d H:i')
+
+    def create(self, validated_data):
+        uploaded_images_data = validated_data.pop('uploaded_images', []) 
+        comment = Comment.objects.create(**validated_data)
+        for img_data in uploaded_images_data:
+            CommentImage.objects.create(comment=comment, image=img_data)
+        return comment
 
 
 class ProfileSerializer(serializers.ModelSerializer):

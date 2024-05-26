@@ -6,6 +6,9 @@ from django.conf import settings
 def product_image_path(instance, filename):
     return f'product_{instance.id}/{filename}'
 
+def comment_image_path(instance, filename):
+    return f'comments/{instance.comment.id}/{filename}'
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="профиль")
     info = models.TextField(blank=True)
@@ -29,8 +32,6 @@ class Category(models.Model):
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
 
-from django.db import models
-from api.models import Category  # Ensure you have the correct import for the related model
 
 class Product(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False)
@@ -82,17 +83,19 @@ class CartItem(models.Model):
         verbose_name_plural = 'Товары в корзине'
 
 
-class Review(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=False)
-    user = models.ForeignKey(User, on_delete=models.SET_DEFAULT, default="Удаленный пользователь")
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     content = models.TextField(blank=False, null=False)
-    rating = models.IntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(5)])
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
-        return f'{self.user.username} - рейтинг {self.rating} для {self.product.name}'
+        return f'отзыв {self.id} от {self.user.username}'
     
     class Meta:
         verbose_name = "Отзыв"
         verbose_name_plural = "Отзывы"
         
+
+class CommentImage(models.Model):
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to=comment_image_path, height_field=None, width_field=None, default="", null=True, blank=True)

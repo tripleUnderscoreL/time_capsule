@@ -7,7 +7,7 @@ from .models import *
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly, AllowAny
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny, IsAuthenticated
 from rest_framework.decorators import action
 
 
@@ -57,31 +57,26 @@ def test(request):
     return Response({})
 
 
-class ProductReviewListAPIView(generics.ListAPIView):
-    serializer_class = ReviewSerializer
+# class ProductReviewListAPIView(generics.ListAPIView):
+#     serializer_class = ReviewSerializer
 
-    def get_queryset(self):
-        product_id = self.kwargs.get('product_id')
-        return Review.objects.filter(product_id=product_id)
+#     def get_queryset(self):
+#         product_id = self.kwargs.get('product_id')
+#         return Comment.objects.filter(product_id=product_id)
 
+class CommentViewSet(viewsets.ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
 
-class ReviewCreateAPIView(generics.CreateAPIView):
-    serializer_class = ReviewSerializer
-    permission_classes = [IsAuthenticated]
-
+    def get_permissions(self):
+        if self.action in ['create', 'update', 'partial_update', 'destroy']:
+            self.permission_classes = [IsAuthenticated]
+        else:
+            self.permission_classes = []
+        return super().get_permissions()
+    
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
-
-    def create(self, request, *args, **kwargs):
-        product_id = kwargs.get('product_id')
-        request_data = request.data.copy()
-        request_data['product'] = product_id
-        serializer = self.get_serializer(data=request_data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save(product_id=product_id)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-    
 
 User = get_user_model()
 
@@ -90,7 +85,6 @@ class CartViewSet(viewsets.ViewSet):
         if self.action == 'add_item' or 'remove_item':
             return [AllowAny()]
         return [IsAuthenticatedOrReadOnly()]
-
 
     def get_cart(self, request):
         if request.user.is_authenticated:
