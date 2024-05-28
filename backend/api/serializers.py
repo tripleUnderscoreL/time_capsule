@@ -1,22 +1,36 @@
-from .models import Product, Cart, CartItem, Comment, Profile, CommentImage
+from .models import Product, Cart, CartItem, Comment, CapsuleUser, CommentImage
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.utils.dateformat import DateFormat
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth import get_user_model
 
-class UserSerializer(serializers.Serializer):
+User = get_user_model()
+# class CapsuleUserSerializer(serializers.Serializer):
+#     # password = serializers.CharField(write_only=True, required=True)
+#     class Meta:
+#         model = CapsuleUser
+#         fields = ['id', 'username', 'password', 'email', 'phone_number']
+
+#     def create(self, validated_data):
+#         validated_data['password'] = make_password(validated_data.get('password'))
+#         return super(CapsuleUserSerializer, self).create(validated_data)
+
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ["username", "password", "email"]
+        model = CapsuleUser
+        fields = ["username", "password", "email", "phone_number"]
         extra_kwargs = {"password": {"write_only": True}}
 
     def create(self, validated_data):
-        user = User.objects.create_user(**validated_data)
+        user = CapsuleUser.objects.create_user(**validated_data)
         return user
+
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['name', 'price', 'description', 'image']
+        fields = ['id', 'name', 'price', 'description', 'image']
 
 
 class CartItemSerializer(serializers.ModelSerializer):
@@ -39,6 +53,7 @@ class CommentImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = CommentImage
         fields = ['id', 'comment', 'image']
+
 
 class CommentSerializer(serializers.ModelSerializer):
     images = CommentImageSerializer(many=True, read_only=True)
@@ -65,26 +80,3 @@ class CommentSerializer(serializers.ModelSerializer):
         for img_data in uploaded_images_data:
             CommentImage.objects.create(comment=comment, image=img_data)
         return comment
-
-
-class ProfileSerializer(serializers.ModelSerializer):
-    username = serializers.ReadOnlyField(source='user.username')
-    email = serializers.ReadOnlyField(source='user.email')
-    full_address = serializers.SerializerMethodField()
-
-    class Meta:
-        model = Profile
-        fields = ['username', 'email', 'info', 'full_address']
-
-    def get_full_address(self, obj):
-        address_parts = [
-            obj.street,
-            f"{obj.house}" if obj.house else "",
-            f"Floor {obj.floor}" if obj.floor else "",
-            f"Apartment {obj.apartment}" if obj.apartment else "",
-            obj.city,
-            obj.region,
-            obj.country
-        ]
-        full_address = ", ".join(filter(None, address_parts))
-        return full_address

@@ -10,6 +10,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny, IsAuthenticated
 from rest_framework.decorators import action
 
+User = get_user_model()
 
 class ProductAPIView(generics.ListAPIView):
     queryset = Product.objects.all()
@@ -78,7 +79,7 @@ class CommentViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
-User = get_user_model()
+
 
 class CartViewSet(viewsets.ViewSet):
     def get_permissions(self):

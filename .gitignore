@@ -160,7 +160,6 @@ cython_debug/
 #.idea/
 
 # custom
-backend/api/migrations
 media
 
 # cache

@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.conf import settings
 
@@ -9,17 +9,8 @@ def product_image_path(instance, filename):
 def comment_image_path(instance, filename):
     return f'comments/{instance.comment.id}/{filename}'
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="профиль")
-    info = models.TextField(blank=True)
-    country = models.TextField(max_length=100, blank=True)
-    region = models.TextField(max_length=100, blank=True)
-    city = models.TextField(max_length=100, blank=True)
-    street = models.TextField(max_length=100, blank=True)
-    house = models.IntegerField(blank=True)
-    floor = models.IntegerField(blank=True)
-    apartment = models.IntegerField(blank=True)
-
+class CapsuleUser(AbstractUser):
+    phone_number = models.CharField(max_length=15, blank=True, null=True, verbose_name="Номер телефона")
 
 class Category(models.Model):
     name = models.CharField(max_length=30, null=False, blank=False)
@@ -84,7 +75,7 @@ class CartItem(models.Model):
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
     content = models.TextField(blank=False, null=False)
     date_added = models.DateTimeField(auto_now_add=True)
 
@@ -99,3 +90,7 @@ class Comment(models.Model):
 class CommentImage(models.Model):
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(upload_to=comment_image_path, height_field=None, width_field=None, default="", null=True, blank=True)
+
+    class Meta:
+        verbose_name = "Картинка к отзыву"
+        verbose_name_plural = "Картинки к отзывам"
