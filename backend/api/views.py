@@ -89,27 +89,26 @@ class CartViewSet(viewsets.ViewSet):
 
     def get_cart(self, request):
         if request.user.is_authenticated:
-            session_key = request.session.session_key
-            if not session_key:
-                request.session.create()
+            cart = Cart.objects.filter(session_key=request.session.session_key).first()
+            if cart:
+                cart.user = request.user
+                cart.save()
+            else:
                 session_key = request.session.session_key
-            cart = Cart.objects.get(session_key=session_key)
-            cart.user = request.user
-            cart.save()
+                cart, created = Cart.objects.get_or_create(user=request.user, session_key=session_key)
         else:
             session_key = request.session.session_key
             if not session_key:
                 request.session.create()
                 session_key = request.session.session_key
             cart, created = Cart.objects.get_or_create(session_key=session_key)
+        
         return cart
-
-
+    
     def list(self, request):
         cart = self.get_cart(request)
         serializer = CartSerializer(cart)
         return Response(serializer.data)
-
 
     @action(detail=False, methods=['POST'])
     def add_item(self, request):
@@ -125,7 +124,6 @@ class CartViewSet(viewsets.ViewSet):
         cart_item.save()
         serializer = CartItemSerializer(cart_item)
         return Response(serializer.data, status=status.HTTP_201_CREATED if created else status.HTTP_200_OK)
-
 
     @action(detail=True, methods=['DELETE'])
     def remove_item(self, request, pk=None):
