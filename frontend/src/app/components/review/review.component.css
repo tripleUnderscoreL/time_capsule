@@ -5,6 +5,7 @@ p{
   font-size: 64px;
   font-weight: 400;
   margin: 10px 0;
+  text-wrap:wrap;
 }
 .row{
   display: flex;

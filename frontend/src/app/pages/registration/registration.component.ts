@@ -13,7 +13,7 @@ import { User } from '../../interfaces';
 })
 export class RegistrationComponent {
   constructor(private postService:PostService){}
-  user:User = {email:'', username:'', password:''}
+  user:User = {email:'', username:'', password:'', phone_number:''}
   receivedUser: User | undefined;
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;
@@ -23,8 +23,10 @@ export class RegistrationComponent {
       console.log(this.user)
       this.postService.postRegisterAccount(this.user).subscribe({
         next:(data: any) => {this.receivedUser=data; true;},
-        error: error => console.log(error)
-    });
+        error: error => console.log(error),
+
+      }
+    );
     }
     else {
       console.log("Не все поля заполнены")

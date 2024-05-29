@@ -1,6 +1,16 @@
 <app-header></app-header>
 <div class="container">
-  <app-basket-product></app-basket-product>
+  <ng-container *ngIf="(Cart$ | async) as cart">
+    <div *ngIf="cart.items && cart.items.length > 0">
+      <div *ngFor="let item of cart.items">
+        {{updateTotal(item)}}
+        <app-basket-product [Item$]="item"></app-basket-product>
+      </div>
+    </div>
+    <div *ngIf="!(cart.items && cart.items.length > 0)">
+      <p>Корзина пуста</p>
+    </div>
+  </ng-container>
   <div class="content">
     <section class="">
       <section class="text">
@@ -9,7 +19,7 @@
       </section>
       <section class="text">
         <p>Общая сумма</p>
-        <p>25900р</p>
+        <p>{{total}}р</p>
       </section>
     </section>
     <button>К оформлению</button>

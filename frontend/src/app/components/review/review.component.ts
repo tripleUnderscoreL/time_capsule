@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-
+import { Comment } from '../../interfaces'
 @Component({
   selector: 'app-review',
   standalone: true,
@@ -9,13 +9,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ReviewComponent {
   @Input()
-  public review !: Review;
+  public review !: Comment;
 }
 
-export interface Review {
-  name: string;
-  date: string;
-  description: string;
-  img1: string;
-  img2: string;
-}
+

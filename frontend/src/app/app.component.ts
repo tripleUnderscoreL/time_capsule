@@ -7,10 +7,10 @@ import { ProfileComponent } from './pages/profile/profile.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, HttpClientModule, ProfileComponent],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, HttpClientModule, ProfileComponent ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = '2024Ang';
+
 }

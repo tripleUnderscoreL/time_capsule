@@ -19,6 +19,7 @@ h1{
 p{
   font-size: 35px;
   font-weight: 400;;
+  text-align: center;
 }
 .amount-in-basket{
   margin: 0;

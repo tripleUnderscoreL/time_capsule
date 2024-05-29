@@ -2,9 +2,9 @@
 <div>
   <img src="../../../assets/img/big-man.png" width="450" height="450">
   <section>
-    <p>Owbfk</p>
-    <p>88005553535</p>
-    <p>{{'owbfk@mail.ru'}}</p>
+    <p>{{ (user | async)!.username }}</p>
+    <p>+{{ (user | async)!.phone_number }}</p>
+    <p>{{ (user | async)!.email }}</p>
   </section>
 </div>
 <app-footer></app-footer>

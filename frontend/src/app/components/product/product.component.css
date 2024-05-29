@@ -31,6 +31,17 @@ a:hover{
   cursor: pointer;
   opacity: 70%;
 }
+.cart{
+  display:flex;
+  justify-content:flex-end;
+  align-items: center;
+  gap: 18px;
+  text-decoration-line: none;
+}
+.cart:hover{
+  cursor: pointer;
+  opacity: 70%;
+}
 h2{
   font-size: 35px;
   font-weight: 400;

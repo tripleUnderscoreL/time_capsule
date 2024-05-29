@@ -1,9 +1,9 @@
 <app-header></app-header>
 <div>
   <section>
-    <input placeholder="Логин">
-    <input placeholder="Пароль">
-    <button>Вход</button>
+    <input placeholder="Логин" (input)="user.username=getValue($event)">
+    <input placeholder="Пароль" (input)="user.password=getValue($event)">
+    <button (click)="logUser()">Вход</button>
   </section>
 </div>
 <app-footer></app-footer>

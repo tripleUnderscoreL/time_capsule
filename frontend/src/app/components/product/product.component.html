@@ -46,7 +46,7 @@
 
   <div *ngSwitchCase="'pipe'">
     @if (Pipes$ | async; as cards){
-      @for (card of cards; track card.id ){
+      @for (card of cards; track card.id){
         <div class="left">
           <img src="../../assets/img/Каплуса S.png" width="800" height="600px">
           <section>
@@ -54,9 +54,9 @@
             <h2>{{card.description}}</h2>
             <article>
               <p>{{card.price}} р</p>
-              <a class="cart">
+              <button class="cart" (click)="postCart(card.id)">
                 <img src="../../assets/img/cart.png" width="41px" height="41px">
-              </a>
+              </button>
             </article>
           </section>
         </div>
@@ -184,9 +184,9 @@
             <h2>{{card.description}}</h2>
             <article>
               <p>{{card.price}} р</p>
-              <a class="cart">
+              <button class="cart" (click)="postCart(card.id)">
                 <img src="../../assets/img/cart.png" width="41px" height="41px">
-              </a>
+              </button>
             </article>
           </section>
         </div>
@@ -328,9 +328,9 @@
             <h2>{{card.description}}</h2>
             <article>
               <p>{{card.price}} р</p>
-              <a class="cart">
+              <button class="cart" (click)="postCart(card.id)">
                 <img src="../../assets/img/cart.png" width="41px" height="41px">
-              </a>
+              </button>
             </article>
           </section>
         </div>
