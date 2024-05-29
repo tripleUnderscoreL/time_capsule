@@ -28,6 +28,9 @@ export class ProductComponent {
   trackByItemId(index: number, item: any): number {
     return item.id;
   }
+  log(item:any){
+    console.log(item)
+  }
   postCart(id: number){
     this.product.product_id = id
     this.postService.postCart(this.product).subscribe({

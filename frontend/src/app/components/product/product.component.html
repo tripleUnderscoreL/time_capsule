@@ -48,7 +48,7 @@
     @if (Pipes$ | async; as cards){
       @for (card of cards; track card.id){
         <div class="left">
-          <img src="../../assets/img/Каплуса S.png" width="800" height="600px">
+          <img src="{{card.image}}" width="800" height="600px">
           <section>
             <h1>{{card.name}}</h1>
             <h2>{{card.description}}</h2>
@@ -178,7 +178,7 @@
     @if (Inner$ | async; as cards){
       @for (card of cards; track card.id ){
         <div class="left">
-          <img src="../../assets/img/Каплуса S.png" width="800" height="600px">
+          <img src="{{card.image}}" width="800" height="600px">
           <section>
             <h1>{{card.name}}</h1>
             <h2>{{card.description}}</h2>
@@ -322,7 +322,7 @@
     @if (Sets$ | async; as cards){
       @for (card of cards; track card.id ){
         <div class="left">
-          <img src="../../assets/img/Каплуса S.png" width="800" height="600px">
+          <img src="{{card.image}}" width="800" height="600px">
           <section>
             <h1>{{card.name}}</h1>
             <h2>{{card.description}}</h2>

@@ -26,5 +26,6 @@ export const routes: Routes = [
   {path: 'FAQ', title: 'FAQ', component: FaqComponent},
   {path: 'profile', title: 'Профиль', component: ProfileComponent},
   {path: 'reviews', title:'Отзывы', component: ReviewsComponent},
-  {path: 'about', title: 'О нас', component: AboutComponent}
+  {path: 'about', title: 'О нас', component: AboutComponent},
+  {path: '**', component: RegistrationComponent}
 ];

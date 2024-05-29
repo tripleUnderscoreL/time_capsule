@@ -8,6 +8,7 @@
       <input placeholder="E-mail" (input)="user.email=getValue($event)">
     </section>
     <button (click)="postUser()">Регистрация</button>
+    <p>{{err}}</p>
   </section>
 </div>
 <app-footer></app-footer>

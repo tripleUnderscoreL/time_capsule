@@ -49,3 +49,9 @@ button:hover{
   cursor: pointer;
   opacity: 70%;
 }
+p{
+  font-size: 44px;
+  font-weight: 400;
+  color: red;
+  text-align: center;
+}
