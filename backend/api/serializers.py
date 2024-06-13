@@ -1,9 +1,9 @@
 from .models import Product, Cart, CartItem, Comment, CapsuleUser, CommentImage
 from rest_framework import serializers
-from django.contrib.auth.models import User
 from django.utils.dateformat import DateFormat
-from django.contrib.auth.hashers import make_password
 from django.contrib.auth import get_user_model
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
 
 User = get_user_model()
 # class CapsuleUserSerializer(serializers.Serializer):
@@ -22,8 +22,18 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ["username", "password", "email", "phone_number"]
         extra_kwargs = {"password": {"write_only": True}}
 
+    def validate_password(self, value):
+        try:
+            validate_password(value)
+        except ValidationError as e:
+            raise serializers.ValidationError(e.messages)
+        return value
+
     def create(self, validated_data):
-        user = CapsuleUser.objects.create_user(**validated_data)
+        password = validated_data.pop('password')
+        user = CapsuleUser(**validated_data)
+        user.set_password(password)
+        user.save()
         return user
 
 
@@ -43,10 +53,15 @@ class CartItemSerializer(serializers.ModelSerializer):
 
 class CartSerializer(serializers.ModelSerializer):
     items = CartItemSerializer(many=True, read_only=True)
+    cart_total = serializers.SerializerMethodField()
 
     class Meta:
         model = Cart
-        fields = ['id', 'user', 'session_key', 'items']
+        fields = ['id', 'user', 'items', 'cart_total']
+
+    def get_cart_total(self, obj):
+        total = sum(item.product.price * item.quantity for item in obj.items.all())
+        return total
 
 
 class CommentImageSerializer(serializers.ModelSerializer):

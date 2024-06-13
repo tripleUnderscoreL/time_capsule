@@ -7,7 +7,7 @@ from .models import *
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny, IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import action
 
 User = get_user_model()
@@ -57,14 +57,6 @@ def login(request):
 def test(request):
     return Response({})
 
-
-# class ProductReviewListAPIView(generics.ListAPIView):
-#     serializer_class = ReviewSerializer
-
-#     def get_queryset(self):
-#         product_id = self.kwargs.get('product_id')
-#         return Comment.objects.filter(product_id=product_id)
-
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
@@ -80,26 +72,13 @@ class CommentViewSet(viewsets.ModelViewSet):
         serializer.save(user=self.request.user)
 
 
-
 class CartViewSet(viewsets.ViewSet):
-    def get_permissions(self):
-        if self.action == 'add_item' or 'remove_item':
-            return [AllowAny()]
-        return [IsAuthenticatedOrReadOnly()]
+    queryset = Cart.objects.all()
+    serializer_class = CartSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_cart(self, request):
-        if request.user.is_authenticated:
-            cart = Cart.objects.filter(session_key=request.session.session_key).first()
-            if cart:
-                cart.user = request.user
-                cart.save()
-            else:
-                session_key = request.session.session_key
-                cart, created = Cart.objects.get_or_create(user=request.user, session_key=session_key)
-        else:
-            session_key = request.session.session_key
-            cart, created = Cart.objects.get_or_create(session_key=session_key)
-        
+        cart, created = Cart.objects.get_or_create(user=request.user)
         return cart
     
     def list(self, request):
@@ -116,15 +95,29 @@ class CartViewSet(viewsets.ViewSet):
         cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
         if not created:
             cart_item.quantity += quantity
-        else:
-            cart_item.quantity = quantity
         cart_item.save()
-        serializer = CartItemSerializer(cart_item)
-        return Response(serializer.data, status=status.HTTP_201_CREATED if created else status.HTTP_200_OK)
+        return Response(CartItemSerializer(cart_item).data, status=status.HTTP_201_CREATED)
+
+    @action(detail=True, methods=['POST'])
+    def increase_quantity(self, request, pk=None):
+        cart_item = get_object_or_404(CartItem, pk=pk)
+        cart_item.quantity += 1
+        cart_item.save()
+        return Response(CartItemSerializer(cart_item).data, status=status.HTTP_200_OK)
+
+    @action(detail=True, methods=['POST'])
+    def decrease_quantity(self, request, pk=None):
+        cart_item = get_object_or_404(CartItem, pk=pk)
+        if cart_item.quantity > 1:
+            cart_item.quantity -= 1
+            cart_item.save()
+            return Response(CartItemSerializer(cart_item).data, status=status.HTTP_200_OK)
+        else:
+            cart_item.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
 
     @action(detail=True, methods=['DELETE'])
     def remove_item(self, request, pk=None):
-        cart = self.get_cart(request)
-        cart_item = get_object_or_404(CartItem, cart=cart, pk=pk)
+        cart_item = get_object_or_404(CartItem, pk=pk)
         cart_item.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
