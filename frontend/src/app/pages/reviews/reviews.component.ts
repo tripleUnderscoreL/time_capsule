@@ -43,7 +43,7 @@ export class ReviewsComponent {
         error: error => console.log(error),
         }
       );
-      //window.location.reload();
+      window.location.reload();
     }
     else {
       console.log("Не все поля заполнены")
