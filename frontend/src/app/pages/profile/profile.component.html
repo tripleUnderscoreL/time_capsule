@@ -1,10 +1,33 @@
 <app-header></app-header>
 <div>
-  <img src="../../../assets/img/big-man.png" width="450" height="450">
-  <section>
-    <p>{{ (user | async)!.username }}</p>
-    <p>+{{ (user | async)!.phone_number }}</p>
-    <p>{{ (user | async)!.email }}</p>
+  <section class="row">
+    <section>
+      <img src="../../../assets/img/big-man.png" width="450" height="450">
+      <button (click)="logout()">Выйти</button>
+    </section>
+    <section class="data" >
+      @if(!editInfo){
+        <p>{{ (user | async)!.username }}</p>
+        <p>{{ (user | async)!.phone_number }}</p>
+        <p>{{ (user | async)!.email }}</p>
+      }
+      @else{
+        <input value="{{ (user | async)!.username }}" class="upper" type="text" (input)="username=getValue($event)">
+        <input value="{{ (user | async)!.phone_number }}" type="text" (input)="phone_number=getValue($event)">
+        <input value="{{ (user | async)!.email }}" class="down" type="text" (input)="email=getValue($event)">
+      }
+      @if(!editInfo){
+        <button (click)="editInfo = !editInfo">Изменить</button>
+      }
+      @else{
+        <button (click)="editInfo = !editInfo; editProfile()">Сохранить</button>
+      }
+
+    </section>
+  </section>
+  <section class="row">
+
+
   </section>
 </div>
 <app-footer></app-footer>

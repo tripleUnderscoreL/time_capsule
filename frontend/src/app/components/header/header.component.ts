@@ -10,5 +10,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-
+  isLogged: string | null = null
+  ngOnInit(){
+    this.isLogged = localStorage.getItem('token')
+  }
 }

@@ -7,6 +7,11 @@
   <section class="inner">
     <p>{{review.content}}</p>
     <section class="row">
+      @if(review.images){
+        @for(images of review.images; track review){
+          <img [src]="images.image" width="186" height="186">
+        }
+      }
       <!-- <img src='../../../assets/img/Капсула M 2.png' width="186" height="186"> -->
     </section>
   </section>

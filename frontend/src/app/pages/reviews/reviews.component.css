@@ -43,3 +43,14 @@ hr{
   align-items: center;
   gap: 38px;
 }
+.hidden{
+  display: none;
+  width: 115px;
+  height:115px;
+  object-fit: cover;
+  object-position: center;
+}
+.add{
+  border-radius: 30px;
+  background-image: url('../../../assets/img/add-photo.png');
+}

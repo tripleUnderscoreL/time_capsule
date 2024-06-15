@@ -98,14 +98,14 @@ class CartViewSet(viewsets.ViewSet):
         cart_item.save()
         return Response(CartItemSerializer(cart_item).data, status=status.HTTP_201_CREATED)
 
-    @action(detail=True, methods=['POST'])
+    @action(detail=True, methods=['PATCH'])
     def increase_quantity(self, request, pk=None):
         cart_item = get_object_or_404(CartItem, pk=pk)
         cart_item.quantity += 1
         cart_item.save()
         return Response(CartItemSerializer(cart_item).data, status=status.HTTP_200_OK)
 
-    @action(detail=True, methods=['POST'])
+    @action(detail=True, methods=['PATCH'])
     def decrease_quantity(self, request, pk=None):
         cart_item = get_object_or_404(CartItem, pk=pk)
         if cart_item.quantity > 1:

@@ -23,7 +23,7 @@ export interface UserInProfile{
 export interface Image{
   id: number,
   comment: number,
-  image: string
+  image: any
 }
 
 export interface Comment{
@@ -55,9 +55,11 @@ export interface Cart{
   user: number,
   session_key: string,
   items: CartItem[],
+  cart_total: string,
 }
 
 export interface ProductInCart{
+  id: string,
   name: string,
   price: number,
   description: string,

@@ -5,10 +5,12 @@
       <input placeholder="Напишите отзыв..." (input)="comment.content=getValue($event)">
       <div class="photos">
         <button class="publish" (click)="postComment()">Опубликовать</button>
-        <button>
-          <img src="../../../assets/img/add-photo.png">
-        </button>
-        <img src="../../../assets/img/Набор 1.png" width="115" height="115">
+        <label for="img-input-1">
+          <input #imageInput type="file" id="img-input-1" class="hidden"
+                   onchange="{document.getElementById('blah-1').src = window.URL.createObjectURL(this.files[0]); }"
+                   (change)="processFile(imageInput)">
+          <img id="blah-1" class="add" width="115" height="115">
+        </label>
       </div>
     </div>
   </section>

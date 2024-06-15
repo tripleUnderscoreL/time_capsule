@@ -9,9 +9,16 @@
     <a class="img-vrap" [routerLink]="['/basket']">
       <img src="../../assets/img/cart.png">
     </a>
-    <a class="img-vrap" [routerLink]="['/profile']">
-      <img src="../../assets/img/man.png">
-    </a>
+    @if (isLogged != null) {
+      <a class="img-vrap" [routerLink]="['/profile']">
+        <img src="../../assets/img/man.png">
+      </a>
+    }
+    @if (isLogged == null) {
+      <a class="img-vrap" [routerLink]="['/login']">
+        <img src="../../assets/img/man.png">
+      </a>
+    }
   </section>
 </div>
 <hr>

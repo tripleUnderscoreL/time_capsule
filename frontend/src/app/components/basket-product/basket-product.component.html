@@ -10,9 +10,17 @@
     </p>
     <div class="details">
       <div class="amount">
-        <button (click)="decreaseAmount()">
-          <img src="../../../assets/img/arrowL.png" width="37" height="37">
-        </button>
+
+        @if(amount != 0){
+          <button (click)="decreaseAmount()">
+            <img src="../../../assets/img/arrowL.png" width="37" height="37">
+          </button>
+        }
+        @else{
+          <button disabled>
+            <img src="../../../assets/img/arrowL.png" width="37" height="37">
+          </button>
+        }
         <section class="">
           <h1>{{Item$.quantity}}</h1>
           <p class="amount-in-basket">В корзине</p>

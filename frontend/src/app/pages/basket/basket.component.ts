@@ -23,6 +23,9 @@ export class BasketComponent {
   updateTotal(item: CartItem){
     this.total+= Number(item.product.price)*Number(item.quantity)
   }
+  reloadTotal(){
+    this.total = 0
+  }
   private readonly cookie = 'sessionid='+this.cookieService.get('sessionid')
 
   ngOnInit(){

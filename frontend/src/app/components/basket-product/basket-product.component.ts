@@ -15,10 +15,16 @@ export class BasketProductComponent {
   constructor(private postService: PostService){}
   @Input()
   public Item$!: CartItem;
+  amount: number|null = null
   addAmount(){
+    this.amount = Number(this.Item$.quantity)+1
     this.Item$.quantity = (Number(this.Item$.quantity)+1).toString()
+    this.postService.increaseAmount(this.Item$)
   }
+
   decreaseAmount(){
+    this.amount = Number(this.Item$.quantity)-1
     this.Item$.quantity = (Number(this.Item$.quantity)-1).toString()
+    this.postService.decreaseAmount(this.Item$)
   }
 }

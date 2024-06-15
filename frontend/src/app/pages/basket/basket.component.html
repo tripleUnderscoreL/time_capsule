@@ -2,6 +2,7 @@
 <div class="container">
   <ng-container *ngIf="(Cart$ | async) as cart">
     <div *ngIf="cart.items && cart.items.length > 0">
+      {{reloadTotal()}}
       <div *ngFor="let item of cart.items">
         {{updateTotal(item)}}
         <app-basket-product [Item$]="item"></app-basket-product>
@@ -10,19 +11,20 @@
     <div *ngIf="!(cart.items && cart.items.length > 0)">
       <p>Корзина пуста</p>
     </div>
+
+    <div class="content">
+      <section class="">
+        <section class="text">
+          <p>Доставка</p>
+          <p>900р</p>
+        </section>
+        <section class="text">
+          <p>Общая сумма</p>
+          <p>{{total+900}}р</p>
+        </section>
+      </section>
+      <button>К оформлению</button>
+    </div>
   </ng-container>
-  <div class="content">
-    <section class="">
-      <section class="text">
-        <p>Доставка</p>
-        <p>900р</p>
-      </section>
-      <section class="text">
-        <p>Общая сумма</p>
-        <p>{{total}}р</p>
-      </section>
-    </section>
-    <button>К оформлению</button>
-  </div>
 </div>
 <app-footer></app-footer>
