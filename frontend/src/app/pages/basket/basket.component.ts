@@ -19,7 +19,7 @@ export class BasketComponent {
   protected Cart$ ?: Observable<Cart>
   constructor(private postService:PostService, private cookieService: CookieService){}
 
-  public total: number = 900
+  public total: number = 0
   updateTotal(item: CartItem){
     this.total+= Number(item.product.price)*Number(item.quantity)
   }
